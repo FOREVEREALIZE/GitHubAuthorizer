@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: linux-rpm
-          path: out/make/rpm/**/*.deb
+          path: out/make/rpm/**/*.rpm
