@@ -23,6 +23,9 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.1
         
+      - name: LS Cuz I Dunno
+        run: ls
+        
       - name: Install NPM Dependencies
         run: npm i
         
