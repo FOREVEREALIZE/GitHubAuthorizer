@@ -18,13 +18,11 @@ jobs:
   linux-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.1
-        
-      - name: LS Cuz I Dunno
-        run: ls
         
       - name: Install NPM Dependencies
         run: npm i
@@ -32,7 +30,14 @@ jobs:
       - name: Build
         run: npm run make
         
-      - uses: actions/upload-artifact@v2
+      - name: Upload DEB Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: linux-deb
           path: out/make/deb/**/*.deb
+          
+      - name: Upload RPM Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: linux-rpm
+          path: out/make/rpm/**/*.deb
