@@ -41,6 +41,7 @@ jobs:
         with:
           name: linux-rpm
           path: out/make/rpm/**/*.rpm
+
   windows-build:
     runs-on: windows-latest
     steps:
@@ -56,5 +57,8 @@ jobs:
       - name: Build
         run: npm run make
         
-      - name: Ls Cuz I Dunno
-        run: dir out/make/squirrel.windows/x64
+      - name: Upload EXE Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: windows-exe
+          path: dir out/make/squirrel.windows/x64/*.exe
